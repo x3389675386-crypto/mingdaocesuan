@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="明道测算 - 八字排盘、六爻占卜、命盘排盘、寻物方位、桃花姻缘、塔罗牌占卜">
+  <title>明道测算</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 顶部装饰 -->
+  <div class="top-ornament">
+    <svg viewBox="0 0 800 60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100,30 Q200,5 300,30 Q400,55 500,30 Q600,5 700,30" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+      <path d="M150,35 Q250,15 350,35 Q450,55 550,35 Q650,15 750,35" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.2"/>
+    </svg>
+  </div>
+
+  <!-- 主容器 -->
+  <div class="app-container">
+    <!-- 头部 -->
+    <header class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="ink-effect ink-1"></div>
+        <div class="ink-effect ink-2"></div>
+        <div class="ink-effect ink-3"></div>
+      </div>
+      <div class="hero-content">
+        <div class="title-decoration">
+          <span class="deco-line"></span>
+          <span class="deco-diamond">◆</span>
+          <span class="deco-line"></span>
+        </div>
+        <h1 class="main-title">明 道 测 算</h1>
+        <p class="subtitle">探 索 命 理 奥 秘 · 洞 悉 人 生 玄 机</p>
+        <div class="title-decoration bottom">
+          <span class="deco-line"></span>
+          <span class="deco-diamond">◆</span>
+          <span class="deco-line"></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 导航卡片 -->
+    <nav class="nav-section" id="nav-section">
+      <div class="nav-grid">
+        <div class="nav-card" data-module="bazi" style="--card-index: 1">
+          <div class="card-icon">
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">☰</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">四柱</text></svg>
+          </div>
+          <h3 class="card-title">八字排盘</h3>
+          <p class="card-desc">生辰八字推算 · 五行命理分析</p>
+        </div>
+        <div class="nav-card" data-module="liuyao" style="--card-index: 2">
+          <div class="card-icon">
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">⚊</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">六爻</text></svg>
+          </div>
+          <h3 class="card-title">六爻占卜</h3>
+          <p class="card-desc">铜钱起卦 · 六十四卦详解</p>
+        </div>
+        <div class="nav-card" data-module="paipan" style="--card-index: 3">
+          <div class="card-icon">
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">◎</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">命盘</text></svg>
+          </div>
+          <h3 class="card-title">命盘排盘</h3>
+          <p class="card-desc">命盘精排 · 藏干纳音神煞</p>
+        </div>
+        <div class="nav-card" data-module="lost" style="--card-index: 4">
+          <div class="card-icon">
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">⌖</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">寻物</text></svg>
+          </div>
+          <h3 class="card-title">寻物方位</h3>
+          <p class="card-desc">失物推算 · 方位指引</p>
+        </div>
+        <div class="nav-card" data-module="romance" style="--card-index: 5">
+          <div class="card-icon">
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">❀</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">桃花</text></svg>
+          </div>
+          <h3 class="card-title">桃花姻缘</h3>
+          <p class="card-desc">姻缘测算 · 桃花运势</p>
+        </div>
+        <div class="nav-card" data-module="tarot" style="--card-index: 6">
+          <div class="card-icon">
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">✦</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">塔罗</text></svg>
+          </div>
+          <h3 class="card-title">塔罗牌占卜</h3>
+          <p class="card-desc">大阿卡纳 · 命运启示</p>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 模块容器 -->
+    <main class="modules-container">
+      <!-- 八字排盘 -->
+      <section id="bazi-module" class="module-content">
+        <div class="module-header">
+          <button class="back-btn" onclick="showNav()">← 返回</button>
+          <h2 class="module-title">八字排盘</h2>
+        </div>
+        <div class="module-body">
+          <div class="form-group">
+            <label class="form-label">出生日期</label>
+            <div class="form-row">
+              <input type="date" id="bazi-date" class="form-input" value="1990-01-01">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">出生时辰</label>
+            <select id="bazi-hour" class="form-input">
+              <option value="0">子时 (23:00-01:00)</option>
+              <option value="1">丑时 (01:00-03:00)</option>
+              <option value="2">寅时 (03:00-05:00)</option>
+              <option value="3">卯时 (05:00-07:00)</option>
+              <option value="4" selected>辰时 (07:00-09:00)</option>
+              <option value="5">巳时 (09:00-11:00)</option>
+              <option value="6">午时 (11:00-13:00)</option>
+              <option value="7">未时 (13:00-15:00)</option>
+              <option value="8">申时 (15:00-17:00)</option>
+              <option value="9">酉时 (17:00-19:00)</option>
+              <option value="10">戌时 (19:00-21:00)</option>
+              <option value="11">亥时 (21:00-23:00)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">性别</label>
+            <select id="bazi-gender" class="form-input">
+              <option value="male">男</option>
+              <option value="female">女</option>
+            </select>
+          </div>
+          <button class="btn-primary" onclick="calculateBazi()">开始排盘</button>
+          <div id="bazi-result" class="result-container" style="display:none;"></div>
+        </div>
+      </section>
+
+      <!-- 六爻占卜 -->
+      <section id="liuyao-module" class="module-content">
+        <div class="module-header">
+          <button class="back-btn" onclick="showNav()">← 返回</button>
+          <h2 class="module-title">六爻占卜</h2>
+        </div>
+        <div class="module-body">
+          <div class="form-group">
+            <label class="form-label">心中默念所问之事</label>
+            <textarea id="liuyao-question" class="form-input form-textarea" placeholder="请输入你想问的事情（可选）..." rows="3"></textarea>
+          </div>
+          <button class="btn-primary" onclick="castLiuyao()">
+            <span class="coin-icon">🪙</span> 摇卦起卦
+          </button>
+          <div id="liuyao-lines" class="liuyao-display">
+            <p class="placeholder-text">点击上方按钮开始摇卦<br>心中默念所问之事，专注凝神</p>
+          </div>
+          <div id="liuyao-result" class="result-container" style="display:none;"></div>
+        </div>
+      </section>
+
+      <!-- 命盘排盘 -->
+      <section id="paipan-module" class="module-content">
+        <div class="module-header">
+          <button class="back-btn" onclick="showNav()">← 返回</button>
+          <h2 class="module-title">命盘排盘</h2>
+        </div>
+        <div class="module-body">
+          <div class="form-group">
+            <label class="form-label">出生日期</label>
+            <input type="date" id="paipan-date" class="form-input" value="1990-01-01">
+          </div>
+          <div class="form-group">
+            <label class="form-label">出生时辰</label>
+            <select id="paipan-hour" class="form-input">
+              <option value="0">子时 (23:00-01:00)</option>
+              <option value="1">丑时 (01:00-03:00)</option>
+              <option value="2">寅时 (03:00-05:00)</option>
+              <option value="3">卯时 (05:00-07:00)</option>
+              <option value="4" selected>辰时 (07:00-09:00)</option>
+              <option value="5">巳时 (09:00-11:00)</option>
+              <option value="6">午时 (11:00-13:00)</option>
+              <option value="7">未时 (13:00-15:00)</option>
+              <option value="8">申时 (15:00-17:00)</option>
+              <option value="9">酉时 (17:00-19:00)</option>
+              <option value="10">戌时 (19:00-21:00)</option>
+              <option value="11">亥时 (21:00-23:00)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">性别</label>
+            <select id="paipan-gender" class="form-input">
+              <option value="male">男</option>
+              <option value="female">女</option>
+            </select>
+          </div>
+          <button class="btn-primary" onclick="generatePaipan()">生成命盘</button>
+          <div id="paipan-result" class="result-container" style="display:none;"></div>
+        </div>
+      </section>
+
+      <!-- 寻物方位 -->
+      <section id="lost-module" class="module-content">
+        <div class="module-header">
+          <button class="back-btn" onclick="showNav()">← 返回</button>
+          <h2 class="module-title">寻物方位</h2>
+        </div>
+        <div class="module-body">
+          <div class="form-group">
+            <label class="form-label">丢失物品</label>
+            <input type="text" id="lost-item" class="form-input" placeholder="如：钥匙、钱包、手机...">
+          </div>
+          <div class="form-group">
+            <label class="form-label">丢失时间</label>
+            <input type="date" id="lost-date" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">最后记得的地点</label>
+            <input type="text" id="lost-place" class="form-input" placeholder="如：家中、办公室...">
+          </div>
+          <button class="btn-primary" onclick="findLost()">推算方位</button>
+          <div id="lost-result" class="result-container" style="display:none;"></div>
+        </div>
+      </section>
+
+      <!-- 桃花姻缘 -->
+      <section id="romance-module" class="module-content">
+        <div class="module-header">
+          <button class="back-btn" onclick="showNav()">← 返回</button>
+          <h2 class="module-title">桃花姻缘</h2>
+        </div>
+        <div class="module-body">
+          <div class="form-group">
+            <label class="form-label">出生日期</label>
+            <input type="date" id="romance-date" class="form-input" value="1990-01-01">
+          </div>
+          <div class="form-group">
+            <label class="form-label">性别</label>
+            <select id="romance-gender" class="form-input">
+              <option value="male">男</option>
+              <option value="female">女</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">感情状态</label>
+            <select id="romance-status" class="form-input">
+              <option value="single">单身</option>
+              <option value="dating">恋爱中</option>
+              <option value="married">已婚</option>
+            </select>
+          </div>
+          <button class="btn-primary" onclick="checkTaohua()">查看桃花</button>
+          <div id="romance-result" class="result-container" style="display:none;"></div>
+        </div>
+      </section>
+
+      <!-- 塔罗牌 -->
+      <section id="tarot-module" class="module-content">
+        <div class="module-header">
+          <button class="back-btn" onclick="showNav()">← 返回</button>
+          <h2 class="module-title">塔罗牌占卜</h2>
+        </div>
+        <div class="module-body">
+          <div class="form-group">
+            <label class="form-label">心中默念想问的事情</label>
+            <textarea id="tarot-question" class="form-input form-textarea" placeholder="请输入你想问的事情（可选）..." rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">抽牌方式</label>
+            <div class="spread-options">
+              <label class="spread-option active" onclick="selectSpread(this, 1)">
+                <span class="spread-icon">🃏</span>
+                <span>单张牌</span>
+              </label>
+              <label class="spread-option" onclick="selectSpread(this, 3)">
+                <span class="spread-icon">🃏🃏🃏</span>
+                <span>三张牌</span>
+              </label>
+            </div>
+          </div>
+          <button class="btn-primary" onclick="drawTarot()">
+            <span>✨</span> 抽牌占卜
+          </button>
+          <div id="tarot-cards" class="tarot-display"></div>
+          <div id="tarot-result" class="result-container" style="display:none;"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+      <div class="footer-ornament">
+        <svg viewBox="0 0 800 30" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100,15 Q200,30 300,15 Q400,0 500,15 Q600,30 700,15" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+        </svg>
+      </div>
+      <p class="footer-text">明道测算 · 仅供参考娱乐</p>
+      <p class="footer-sub">命理玄学 仅供消遣 不可尽信</p>
+    </footer>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/data.js"></script>
+  <script src="js/bazi.js"></script>
+  <script src="js/liuyao.js"></script>
+  <script src="js/tarot.js"></script>
+  <script src="js/divination.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
