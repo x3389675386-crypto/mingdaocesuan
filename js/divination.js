@@ -53,27 +53,27 @@ function findLost() {
   html += `<p><strong>丢失物品：</strong>${item}</p>`;
   if (place) html += `<p><strong>丢失地点：</strong>${place}</p>`;
 
-  html += `<hr style="border-color:var(--color-border-light);margin:0.75rem 0">`;
+  html += `<hr style="border-color:rgba(201,168,76,0.15);margin:0.75rem 0">`;
 
   // 方位信息
   html += `<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:0.75rem 0">`;
-  html += `<div style="text-align:center;padding:0.75rem;background:var(--color-cream);border-radius:8px">
-    <div style="font-size:0.8rem;color:var(--color-ink-light)">寻找方位</div>
-    <div style="font-size:1.5rem;font-weight:700;color:var(--color-red);font-family:var(--font-title)">${dir.direction}</div>
-    <div style="font-size:0.75rem;color:var(--color-ink-light)">五行属${dir.element}</div>
+  html += `<div style="text-align:center;padding:0.75rem;background:var(--paper-cream);border-radius:8px">
+    <div style="font-size:0.8rem;color:var(--text-secondary)">寻找方位</div>
+    <div style="font-size:1.5rem;font-weight:700;color:var(--cinnabar);font-family:var(--font-title)">${dir.direction}</div>
+    <div style="font-size:0.75rem;color:var(--text-secondary)">五行属${dir.element}</div>
   </div>`;
-  html += `<div style="text-align:center;padding:0.75rem;background:var(--color-cream);border-radius:8px">
-    <div style="font-size:0.8rem;color:var(--color-ink-light)">找到几率</div>
-    <div style="font-size:1.5rem;font-weight:700;color:${likelihood === '较高' ? 'var(--color-jade)' : likelihood === '较低' ? 'var(--color-red)' : 'var(--color-gold-dark)'};font-family:var(--font-title)">${likelihood}</div>
-    <div style="font-size:0.75rem;color:var(--color-ink-light)">预计${timeFrame}</div>
+  html += `<div style="text-align:center;padding:0.75rem;background:var(--paper-cream);border-radius:8px">
+    <div style="font-size:0.8rem;color:var(--text-secondary)">找到几率</div>
+    <div style="font-size:1.5rem;font-weight:700;color:${likelihood === '较高' ? '#5a8a8a' : likelihood === '较低' ? 'var(--cinnabar)' : '#a88a3d'};font-family:var(--font-title)">${likelihood}</div>
+    <div style="font-size:0.75rem;color:var(--text-secondary)">预计${timeFrame}</div>
   </div>`;
   html += `</div>`;
 
   html += `<p><strong>寻找建议：</strong>${dir.advice}。</p>`;
-  html += `<p style="margin-top:0.5rem;font-size:0.85rem;color:var(--color-ink-light)">保持冷静，仔细回忆最后一次使用该物品的时间和地点，往往就在你忽略的角落。</p>`;
+  html += `<p style="margin-top:0.5rem;font-size:0.85rem;color:var(--text-secondary)">保持冷静，仔细回忆最后一次使用该物品的时间和地点，往往就在你忽略的角落。</p>`;
   html += `</div>`;
 
-  html += '<p style="text-align:center;font-size:0.75rem;color:var(--color-ink-light);margin-top:0.5rem">以上推算仅供参考 🔍</p>';
+  html += '<p style="text-align:center;font-size:0.75rem;color:var(--text-secondary);margin-top:0.5rem">以上推算仅供参考 🔍</p>';
 
   // 寻物详解
   html += `<div class="detail-section">
@@ -130,11 +130,11 @@ function checkTaohua() {
 
   // 随机桃花运势
   const taohuaLevels = [
-    { level: '盛', desc: '桃花运极旺，异性缘佳，容易遇到心仪对象。', color: 'var(--color-red)' },
-    { level: '旺', desc: '桃花运势不错，社交活动中容易结交新朋友。', color: 'var(--color-red-light)' },
-    { level: '平', desc: '桃花运势平稳，顺其自然即可。', color: 'var(--color-gold)' },
-    { level: '弱', desc: '桃花运一般，可能需要主动出击。', color: 'var(--color-jade)' },
-    { level: '暗', desc: '近期桃花运较弱，宜修身养性，提升自我。', color: 'var(--color-ink-light)' }
+    { level: '盛', desc: '桃花运极旺，异性缘佳，容易遇到心仪对象。', color: 'var(--cinnabar)' },
+    { level: '旺', desc: '桃花运势不错，社交活动中容易结交新朋友。', color: 'var(--cinnabar-light)' },
+    { level: '平', desc: '桃花运势平稳，顺其自然即可。', color: 'var(--gold)' },
+    { level: '弱', desc: '桃花运一般，可能需要主动出击。', color: '#5a8a8a' },
+    { level: '暗', desc: '近期桃花运较弱，宜修身养性，提升自我。', color: 'var(--text-secondary)' }
   ];
 
   const levelIdx = hasTaohuaInDay ? 0 : Math.floor(Math.random() * 5);
@@ -160,7 +160,7 @@ function checkTaohua() {
 
   // 桃花运势
   html += `<div style="margin-bottom:1rem">
-    <div style="font-size:0.9rem;color:var(--color-ink-light)">你的桃花运</div>
+    <div style="font-size:0.9rem;color:var(--text-secondary)">你的桃花运</div>
     <div style="font-size:2.5rem;font-weight:900;color:${taohua.color};font-family:var(--font-title)">${taohua.level}</div>
     <p style="margin-top:0.5rem;font-size:0.95rem">${taohua.desc}</p>
   </div>`;
@@ -175,11 +175,11 @@ function checkTaohua() {
       <div><strong>旺桃花月：</strong>${luckyMonth}</div>
       <div style="grid-column:span 2"><strong>幸运色：</strong>${luckyColor}</div>
     </div>
-    <hr style="border-color:var(--color-border-light);margin:0.75rem 0">
+    <hr style="border-color:rgba(201,168,76,0.15);margin:0.75rem 0">
     <p style="font-size:0.85rem">${adviceMap[status]}</p>
   </div>`;
 
-  html += `<p style="text-align:center;font-size:0.75rem;color:var(--color-ink-light);margin-top:0.5rem">桃花运仅供娱乐参考，真爱需要用心经营 ❤️</p>`;
+  html += `<p style="text-align:center;font-size:0.75rem;color:var(--text-secondary);margin-top:0.5rem">桃花运仅供娱乐参考，真爱需要用心经营 ❤️</p>`;
   html += `</div>`;
 
   // 桃花详解
@@ -270,8 +270,8 @@ function generatePaipan() {
     const bars = '█'.repeat(cnt) + '░'.repeat(4 - Math.min(cnt, 4));
     html += `<div style="flex:1;min-width:60px;text-align:center;padding:0.5rem;border-radius:8px;background:${WUXING_BG[wx]}">
       <div style="font-weight:700;color:${WUXING_COLORS[wx]}">${wx}</div>
-      <div style="font-size:0.8rem;font-family:monospace;color:var(--color-ink-light)">${bars}</div>
-      <div style="font-size:0.7rem;color:var(--color-ink-light)">${cnt}/8</div>
+      <div style="font-size:0.8rem;font-family:monospace;color:var(--text-secondary)">${bars}</div>
+      <div style="font-size:0.7rem;color:var(--text-secondary)">${cnt}/8</div>
     </div>`;
   });
   html += '</div>';
@@ -288,7 +288,7 @@ function generatePaipan() {
   html += `</p>`;
   html += `</div>`;
 
-  html += '<p style="text-align:center;font-size:0.75rem;color:var(--color-ink-light);margin-top:0.5rem">命盘排盘仅供研究参考 📜</p>';
+  html += '<p style="text-align:center;font-size:0.75rem;color:var(--text-secondary);margin-top:0.5rem">命盘排盘仅供研究参考 📜</p>';
 
   // 命盘详解
   const dayWx = GAN_WUXING[dayGan];

@@ -86,8 +86,8 @@ function showTarotResult(question) {
   let html = '';
 
   if (question) {
-    html += `<div class="bazi-summary" style="border-left-color:var(--color-jade);margin-bottom:1rem">
-      <h4 style="color:var(--color-jade)">你的问题</h4>
+    html += `<div class="bazi-summary" style="border-left-color:#5a8a8a;margin-bottom:1rem">
+      <h4 style="color:#5a8a8a">你的问题</h4>
       <p>${question}</p>
     </div>`;
   }
@@ -97,15 +97,15 @@ function showTarotResult(question) {
       ? ['过去', '现在', '未来'][index]
       : '启示';
 
-    html += `<div class="bazi-summary" style="margin-bottom:1rem;border-left-color:${card.isReversed ? 'var(--color-red)' : 'var(--color-gold)'}">`;
-    html += `<h4 style="color:${card.isReversed ? 'var(--color-red)' : 'var(--color-gold)'}">`;
+    html += `<div class="bazi-summary" style="margin-bottom:1rem;border-left-color:${card.isReversed ? 'var(--cinnabar)' : 'var(--gold)'}">`;
+    html += `<h4 style="color:${card.isReversed ? 'var(--cinnabar)' : 'var(--gold)'}">`;
 
     if (currentSpread === 3) {
       html += `${positionLabel} · `;
     }
 
     html += `${card.name} ${card.isReversed ? '（逆位）' : '（正位）'}</h4>`;
-    html += `<p style="font-size:0.8rem;color:var(--color-ink-light);margin-bottom:0.5rem">
+    html += `<p style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.5rem">
       元素：${card.element} | 对应：${card.planet}
     </p>`;
     html += `<p style="font-size:0.9rem;line-height:1.8">`;
@@ -119,13 +119,13 @@ function showTarotResult(question) {
     html += `<div class="bazi-summary">
       <h4>综合解读</h4>
       <p>过去(${tarotDrawn[0].name}) → 现在(${tarotDrawn[1].name}) → 未来(${tarotDrawn[2].name})</p>
-      <p style="font-size:0.85rem;color:var(--color-ink-light);margin-top:0.5rem">
+      <p style="font-size:0.85rem;color:var(--text-secondary);margin-top:0.5rem">
         三张牌的流动显示了事态的发展脉络。请参考每张牌的具体解读，结合你的实际情况进行思考。
       </p>
     </div>`;
   }
 
-  html += '<p style="text-align:center;font-size:0.75rem;color:var(--color-ink-light);margin-top:0.5rem">塔罗牌仅供娱乐参考，命运掌握在自己手中 🌟</p>';
+  html += '<p style="text-align:center;font-size:0.75rem;color:var(--text-secondary);margin-top:0.5rem">塔罗牌仅供娱乐参考，命运掌握在自己手中 🌟</p>';
 
   // 每张牌简述+详解
   html += '<div style="margin-top:18px">';

@@ -81,10 +81,10 @@ function displayLiuyaoLines(yaos) {
     // 用更美观的方式显示爻
     if (yao.type === 'yang') {
       symbolSpan.textContent = yao.changing ? '━━━○' : '━━━━';
-      symbolSpan.style.color = yao.changing ? 'var(--color-red)' : 'var(--color-ink)';
+      symbolSpan.style.color = yao.changing ? '#c13b3b' : '#3d3223';
     } else {
       symbolSpan.textContent = yao.changing ? '━ ━×' : '━  ━';
-      symbolSpan.style.color = yao.changing ? 'var(--color-red)' : 'var(--color-ink-light)';
+      symbolSpan.style.color = yao.changing ? '#c13b3b' : '#756b5a';
     }
     symbolSpan.style.fontSize = '1.8rem';
     symbolSpan.style.letterSpacing = '0.1em';
@@ -127,32 +127,32 @@ function castLiuyao() {
 
     // 本卦
     html += `<h4>📖 本卦：${hexagram.name} ${String.fromCharCode(0x4DBF + hexagram.num)}</h4>`;
-    html += `<p style="font-size:0.85rem;color:var(--color-ink-light)">${hexagram.trigrams}</p>`;
+    html += `<p style="font-size:0.85rem;color:var(--text-secondary)">${hexagram.trigrams}</p>`;
     html += `<p style="margin:0.5rem 0"><strong>卦辞：</strong>${hexagram.judgment}</p>`;
     html += `<p>${hexagram.meaning}</p>`;
 
     // 变卦
     if (changedHexagram) {
-      html += `<hr style="border-color:var(--color-border-light);margin:1rem 0">`;
+      html += `<hr style="border-color:rgba(201,168,76,0.15);margin:1rem 0">`;
       html += `<h4>🔄 变卦：${changedHexagram.name} ${String.fromCharCode(0x4DBF + changedHexagram.num)}</h4>`;
-      html += `<p style="font-size:0.85rem;color:var(--color-ink-light)">${changedHexagram.trigrams}</p>`;
+      html += `<p style="font-size:0.85rem;color:var(--text-secondary)">${changedHexagram.trigrams}</p>`;
       html += `<p style="margin:0.5rem 0"><strong>卦辞：</strong>${changedHexagram.judgment}</p>`;
       html += `<p>${changedHexagram.meaning}</p>`;
 
       // 变爻提示
       const changingYaos = yaos.filter(y => y.changing);
-      html += `<p style="margin-top:0.5rem;font-size:0.85rem;color:var(--color-red)">`;
+      html += `<p style="margin-top:0.5rem;font-size:0.85rem;color:var(--cinnabar)">`;
       html += `变爻：${changingYaos.map(y => `第${y.position}爻(${y.label})`).join('、')}`;
       html += `</p>`;
     }
 
     if (question) {
-      html += `<hr style="border-color:var(--color-border-light);margin:1rem 0">`;
-      html += `<p style="font-size:0.85rem;color:var(--color-ink-light)"><strong>所问之事：</strong>${question}</p>`;
+      html += `<hr style="border-color:rgba(201,168,76,0.15);margin:1rem 0">`;
+      html += `<p style="font-size:0.85rem;color:var(--text-secondary)"><strong>所问之事：</strong>${question}</p>`;
     }
 
     html += '</div>';
-    html += '<p style="text-align:center;font-size:0.75rem;color:var(--color-ink-light);margin-top:0.5rem">以上解读仅供参考，心诚则灵 ✨</p>';
+    html += '<p style="text-align:center;font-size:0.75rem;color:var(--text-secondary);margin-top:0.5rem">以上解读仅供参考，心诚则灵 ✨</p>';
 
     // 每爻简述+详解
     html += '<div style="margin-top:18px">';

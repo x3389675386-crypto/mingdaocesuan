@@ -224,7 +224,7 @@ function calculateBazi() {
     html += `<div style="flex:1;min-width:50px;text-align:center;padding:0.5rem;border-radius:8px;background:${WUXING_BG[wx]}">
       <div style="font-weight:700;color:${WUXING_COLORS[wx]}">${wx}</div>
       <div style="font-size:1.2rem;font-weight:700">${cnt}</div>
-      <div style="font-size:0.7rem;color:var(--color-ink-light)">${pct}%</div>
+      <div style="font-size:0.7rem;color:var(--text-secondary)">${pct}%</div>
     </div>`;
   });
   html += '</div>';
