@@ -470,6 +470,29 @@ body {
   opacity: 0.7;
 }
 
+/* 前往官网链接 */
+.nav-guanwang {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 6px 20px;
+  font-family: var(--font-title);
+  font-size: 0.85rem;
+  color: var(--cinnabar);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--cinnabar);
+  border-radius: 20px;
+  background: var(--cinnabar-soft);
+  transition: all 0.3s var(--ease-out-quart);
+}
+.nav-guanwang:hover {
+  color: #fff;
+  background: var(--cinnabar);
+  border-color: var(--cinnabar);
+  box-shadow: 0 2px 14px rgba(193,59,59,0.3);
+  transform: translateY(-1px);
+}
+
 /* ============================================================
    导航卡片
    ============================================================ */
