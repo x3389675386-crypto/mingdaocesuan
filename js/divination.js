@@ -75,6 +75,21 @@ function findLost() {
 
   html += '<p style="text-align:center;font-size:0.75rem;color:var(--color-ink-light);margin-top:0.5rem">以上推算仅供参考 🔍</p>';
 
+  // 寻物详解
+  html += `<div class="detail-section">
+    <div class="detail-title">🔍 寻物简述</div>
+    <div class="detail-text">失物${item}，推算方位在<strong>${dir.direction}</strong>，五行属${dir.element}。找到几率<strong>${likelihood}</strong>，预计${timeFrame}内有望寻回。</div>
+    <div class="detail-title" style="margin-top:8px">🔍 寻物详解</div>
+    <div class="detail-text">${dir.advice}。建议先从${dir.direction}方位的常用区域开始搜寻，如抽屉、柜子、${dir.element === '木' ? '书架花盆附近' : dir.element === '火' ? '厨房电器附近' : dir.element === '土' ? '角落地面附近' : dir.element === '金' ? '金属器具、包包夹层' : '浴室水槽附近'}。保持耐心，往往失物就在你眼皮底下。</div>
+  </div>`;
+
+  // 弹窗
+  html += `<div class="xuzeye-popover">
+    <div class="xuzeye-icon">🧧</div>
+    <div class="xuzeye-text">说了你也不懂，问问徐泽野吧！</div>
+    <div class="xuzeye-sub">— 寻物之道，还需高人指点 —</div>
+  </div>`;
+
   resultDiv.innerHTML = html;
   resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
@@ -166,6 +181,21 @@ function checkTaohua() {
 
   html += `<p style="text-align:center;font-size:0.75rem;color:var(--color-ink-light);margin-top:0.5rem">桃花运仅供娱乐参考，真爱需要用心经营 ❤️</p>`;
   html += `</div>`;
+
+  // 桃花详解
+  html += `<div class="detail-section">
+    <div class="detail-title">🌸 桃花简述</div>
+    <div class="detail-text">桃花运<strong style="color:${taohua.color}">「${taohua.level}」</strong>— ${taohua.desc}</div>
+    <div class="detail-title" style="margin-top:8px">🌸 桃花详解</div>
+    <div class="detail-text">命带<strong>${taohuaZhi}</strong>桃花星（肖${ZHI_SHENGXIAO[taohuaIndex]}），桃花方位在<strong>${luckyDir}</strong>，${luckyMonth}桃花最旺，幸运色为<strong>${luckyColor}</strong>。${adviceMap[status]} 桃花星坐${taohuaZhi}，${taohuaZhi === '子' ? '水性桃花，柔和多情' : taohuaZhi === '午' ? '火性桃花，热情奔放' : taohuaZhi === '卯' ? '木性桃花，温润秀美' : '金性桃花，精致含蓄'}。缘分天定，修心为上。</div>
+  </div>`;
+
+  // 弹窗
+  html += `<div class="xuzeye-popover">
+    <div class="xuzeye-icon">🧧</div>
+    <div class="xuzeye-text">说了你也不懂，问问徐泽野吧！</div>
+    <div class="xuzeye-sub">— 姻缘之事，还需高人指点 —</div>
+  </div>`;
 
   resultDiv.innerHTML = html;
   resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -259,6 +289,29 @@ function generatePaipan() {
   html += `</div>`;
 
   html += '<p style="text-align:center;font-size:0.75rem;color:var(--color-ink-light);margin-top:0.5rem">命盘排盘仅供研究参考 📜</p>';
+
+  // 命盘详解
+  const dayWx = GAN_WUXING[dayGan];
+  const dayYinYangStr = GAN_YINYANG[dayGan] === '阳' ? '阳刚果决' : '阴柔缜密';
+  html += `<div class="detail-section">
+    <div class="detail-title">📜 命盘简述</div>
+    <div class="detail-text">日主<strong>${GAN[dayGan]}</strong>${dayWx}，${dayYinYangStr}之性。四柱纳音${nayinList.join('·')}。命局五行<strong>${Math.max(...Object.values(wuxingCount)) === Math.min(...Object.values(wuxingCount)) ? '均衡' : '偏' + Object.entries(wuxingCount).sort((a,b)=>b[1]-a[1])[0][0] + '旺'}</strong>。</div>
+    <div class="detail-title" style="margin-top:8px">📜 命盘详解</div>
+    <div class="detail-text">
+      年柱${GAN[yearGZ.ganIndex]}${ZHI[yearGZ.zhiIndex]}为根，${nayinList[0]}之命，祖德${yearGZ.ganIndex % 2 === 0 ? '深厚' : '清寒'}。<br>
+      月柱${GAN[monthGan]}${ZHI[monthZhi]}为苗，${nayinList[1]}之气，事业${monthGan % 2 === 0 ? '顺遂' : '波折中成长'}。<br>
+      日柱${GAN[dayGan]}${ZHI[dayZhi]}为花，${nayinList[2]}之身，婚姻${dayGan % 2 === 0 ? '和谐美满' : '需多沟通包容'}。<br>
+      时柱${GAN[hourGan]}${ZHI[hourZhi]}为果，${nayinList[3]}之归，晚年${hourGan % 2 === 0 ? '福泽绵长' : '自在清闲'}。
+      生肖属${ZHI_SHENGXIAO[yearGZ.zhiIndex]}，${gender === 'male' ? '男' : '女'}命${GAN[dayGan]}${dayWx}日主，${dayYinYangStr}，整体${Object.values(wuxingCount).filter(v=>v>=2).length >= 4 ? '五行流通有致' : '五行有所偏颇，宜后天调和'}。
+    </div>
+  </div>`;
+
+  // 弹窗
+  html += `<div class="xuzeye-popover">
+    <div class="xuzeye-icon">🧧</div>
+    <div class="xuzeye-text">说了你也不懂，问问徐泽野吧！</div>
+    <div class="xuzeye-sub">— 命盘玄妙，还需高人解读 —</div>
+  </div>`;
 
   resultDiv.innerHTML = html;
   resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

@@ -229,8 +229,33 @@ function calculateBazi() {
   });
   html += '</div>';
 
+  // 每柱简述+详解
+  html += '<div style="margin-top:18px">';
+  const pillarExplain = [
+    { name:'年柱', desc:'代表祖上根基、父母缘、少年运势。年干为外在环境，年支为家族背景。', detail:'年柱论断：年柱天干' + GAN[yearGZ.ganIndex] + '坐' + ZHI[yearGZ.zhiIndex] + '，' + GAN_WUXING[yearGZ.ganIndex] + '木相生有情，祖业根基' + (yearGZ.ganIndex % 2 === 0 ? '稳固，得长辈荫庇' : '多变，少年奔波') + '。年支' + ZHI_SHENGXIAO[yearGZ.zhiIndex] + '之人，' + (yearGZ.zhiIndex < 6 ? '性格外放，社交广阔' : '性格内敛，处事沉稳') + '。' },
+    { name:'月柱', desc:'代表父母兄弟、事业平台、青年运势。月令为重，主一生大环境。', detail:'月柱论断：月令' + ZHI[monthZhi] + '当权，格局' + (monthZhi <= 2 ? '木火通明，春回大地' : monthZhi <= 5 ? '火土炎上，夏长之时' : monthZhi <= 8 ? '金水相生，秋收之季' : '水木清华，冬藏之候') + '。月干' + GAN[monthGan] + '透出，事业' + (monthGan % 2 === 0 ? '得贵人相助，步步高升' : '需靠自己打拼，终有所成') + '。' },
+    { name:'日柱', desc:'代表自身、配偶宫、中年运势。日干即日主，为命局核心。', detail:'日柱论断：日主' + GAN[dayGan] + '为' + GAN_WUXING[dayGan] + '命，坐' + ZHI[dayZhi] + '配偶宫。' + GAN[dayGan] + '之人，' + (dayGan <= 4 ? '阳干刚健，性情开朗，行事果断' : '阴干柔韧，心思缜密，处事圆融') + '。夫妻宫' + ZHI[dayZhi] + '，婚姻' + (ZHI_WUXING[dayZhi] === GAN_WUXING[dayGan] ? '配偶与自己五行相同，彼此理解' : '配偶与自己互补，各有所长') + '。' },
+    { name:'时柱', desc:'代表子女、晚年运势、最终归宿。时柱为归宿之位。', detail:'时柱论断：时干' + GAN[hourGan] + '透出，子女' + (hourGan % 2 === 0 ? '乖巧聪慧，晚年享福' : '独立自强，有出息') + '。时支' + ZHI[hourZhi] + '归息之地，晚年' + (hourZhi <= 5 ? '生活安乐，子孙满堂' : '宁静致远，安享清福') + '。' }
+  ];
+  pillarExplain.forEach((pe, i) => {
+    html += `<div class="detail-section">
+      <div class="detail-title">${pe.name} · 简述</div>
+      <div class="detail-text">${pe.desc}</div>
+      <div class="detail-title" style="margin-top:8px">${pe.name} · 详解</div>
+      <div class="detail-text">${pe.detail}</div>
+    </div>`;
+  });
+  html += '</div>';
+
   // 分析
   html += `<div class="bazi-summary"><h4>命理简析</h4><p>${analysis.analysis}</p></div>`;
+
+  // 弹窗
+  html += `<div class="xuzeye-popover">
+    <div class="xuzeye-icon">🧧</div>
+    <div class="xuzeye-text">说了你也不懂，问问徐泽野吧！</div>
+    <div class="xuzeye-sub">— 命理玄机，还需高人指点 —</div>
+  </div>`;
 
   resultDiv.innerHTML = html;
   resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });

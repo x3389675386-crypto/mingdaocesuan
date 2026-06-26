@@ -154,6 +154,34 @@ function castLiuyao() {
     html += '</div>';
     html += '<p style="text-align:center;font-size:0.75rem;color:var(--color-ink-light);margin-top:0.5rem">以上解读仅供参考，心诚则灵 ✨</p>';
 
+    // 每爻简述+详解
+    html += '<div style="margin-top:18px">';
+    const yaoExplainLabels = ['初爻','二爻','三爻','四爻','五爻','上爻'];
+    const yaoExplainPositions = ['根基、初始状态','内部环境、人际','中层力量、过渡','外部环境、进阶','高位、巅峰状态','顶端、最终结局'];
+    yaos.forEach((yao, i) => {
+      const yaoGan = yao.type === 'yang' ? '阳' : '阴';
+      html += `<div class="detail-section">
+        <div class="detail-title"><span class="brief-tag">${yaoExplainLabels[i]}</span> 简述</div>
+        <div class="detail-text">${yaoExplainPositions[i]}，此爻为<strong>${yaoGan}爻</strong>${yao.changing ? '且为<strong style="color:var(--cinnabar)">变爻</strong>' : ''}，${yao.type === 'yang' ? '阳刚主动，积极进取之力' : '阴柔内敛，静守待时之象'}。</div>
+        <div class="detail-title" style="margin-top:8px">详解</div>
+        <div class="detail-text">${yaoExplainLabels[i]}${yaoGan}爻${yao.changing ? '发动' : '安静'}：${yao.type === 'yang' ? (yao.changing ? '阳动变阴，由刚转柔，局势将变。宜审时度势、见好就收。' : '阳爻稳固，基础坚实。宜积极行动，顺势而为。') : (yao.changing ? '阴动变阳，由柔转刚，暗流涌动。宜等待时机、蓄势待发。' : '阴爻守静，根基稳定。宜保守观望、以静制动。')}</div>
+      </div>`;
+    });
+    html += '</div>';
+
+    // 卦辞详解
+    html += `<div class="detail-section">
+      <div class="detail-title">📜 本卦《${hexagram.name}》详解</div>
+      <div class="detail-text">${hexagram.meaning}。此卦${hexagram.trigrams}，${hexagram.judgment}。得此卦者，${hexagram.num <= 32 ? '事宜前进，当把握时机，勇于开拓' : '事宜退守，当谨慎行事，以柔克刚'}。${changedHexagram ? '然有变爻，情势有转，' + changedHexagram.name + '之象已现。' : ''}</div>
+    </div>`;
+
+    // 弹窗
+    html += `<div class="xuzeye-popover">
+      <div class="xuzeye-icon">🧧</div>
+      <div class="xuzeye-text">说了你也不懂，问问徐泽野吧！</div>
+      <div class="xuzeye-sub">— 卦象玄妙，还需高人解卦 —</div>
+    </div>`;
+
     resultDiv.innerHTML = html;
     resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }, 1800);

@@ -127,6 +127,30 @@ function showTarotResult(question) {
 
   html += '<p style="text-align:center;font-size:0.75rem;color:var(--color-ink-light);margin-top:0.5rem">塔罗牌仅供娱乐参考，命运掌握在自己手中 🌟</p>';
 
+  // 每张牌简述+详解
+  html += '<div style="margin-top:18px">';
+  tarotDrawn.forEach((card, index) => {
+    const posName = currentSpread === 3 ? ['过去','现在','未来'][index] : '启示';
+    html += `<div class="detail-section">
+      <div class="detail-title"><span class="brief-tag">${posName}</span> ${card.name} ${card.isReversed ? '逆位' : '正位'} · 简述</div>
+      <div class="detail-text">${card.keywords}。此牌元素属<strong>${card.element}</strong>，对应${card.planet}，${card.isReversed ? '逆位暗示阻碍、延迟或内在反思' : '正位暗示顺利、显化或外在机遇'}。</div>
+      <div class="detail-title" style="margin-top:8px">详解</div>
+      <div class="detail-text">${card.isReversed ? card.reversed : card.upright} (${
+        currentSpread === 3
+        ? (index === 0 ? '过去的影响仍在，需从历史中汲取经验' : index === 1 ? '当下的关键节点，把握此刻即可改变未来' : '未来的提示与警示，前路由此展开')
+        : '这张牌是你当下的核心指引'
+      })</div>
+    </div>`;
+  });
+  html += '</div>';
+
+  // 弹窗
+  html += `<div class="xuzeye-popover">
+    <div class="xuzeye-icon">🧧</div>
+    <div class="xuzeye-text">说了你也不懂，问问徐泽野吧！</div>
+    <div class="xuzeye-sub">— 牌面玄机，还需高人解读 —</div>
+  </div>`;
+
   resultDiv.innerHTML = html;
   resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
