@@ -8,40 +8,72 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;500;600;700;900&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- 顶部装饰 -->
-  <div class="top-ornament">
-    <svg viewBox="0 0 800 60" xmlns="http://www.w3.org/2000/svg">
-      <path d="M100,30 Q200,5 300,30 Q400,55 500,30 Q600,5 700,30" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-      <path d="M150,35 Q250,15 350,35 Q450,55 550,35 Q650,15 750,35" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.2"/>
+
+  <!-- 欢迎弹窗 -->
+  <div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-modal">
+      <div class="modal-ornament-top"></div>
+      <div class="modal-body modal-corners">
+        <!-- 圆形印章 -->
+        <div class="modal-seal">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="17" stroke-width="1.2"/>
+            <circle cx="20" cy="20" r="13" stroke-width="0.6" opacity="0.5"/>
+            <path d="M20 5 L20 11 M20 29 L20 35 M5 20 L11 20 M29 20 L35 20" stroke-width="1"/>
+            <text x="20" y="25" text-anchor="middle" font-size="13" fill="currentColor" stroke="none" style="fill:#bfa055;">福</text>
+          </svg>
+        </div>
+        <!-- 文字 -->
+        <p class="modal-greeting">徐泽野</p>
+        <p class="modal-message">祝你天天开心<br>万事大吉</p>
+        <!-- 关闭按钮 -->
+        <button class="modal-close-btn" onclick="closeWelcome()">进 入</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 山水背景层 -->
+  <div class="mountains-layer">
+    <svg viewBox="0 0 1440 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- 远山 -->
+      <path d="M0,500 L0,320 Q80,260 200,300 Q320,340 400,280 Q480,220 560,270 Q640,320 720,250 Q800,180 880,230 Q960,280 1040,240 Q1120,200 1200,260 Q1280,320 1360,280 Q1400,260 1440,300 L1440,500 Z" fill="#141210" opacity="0.6"/>
+      <!-- 中山 -->
+      <path d="M0,500 L0,380 Q100,340 220,370 Q340,400 460,350 Q580,300 700,360 Q820,420 940,340 Q1060,280 1180,320 Q1300,360 1440,340 L1440,500 Z" fill="#0d0b08" opacity="0.8"/>
+      <!-- 近山 -->
+      <path d="M0,500 L0,430 Q60,400 150,420 Q250,440 350,400 Q450,360 550,410 Q650,460 750,390 Q850,340 950,380 Q1050,420 1150,370 Q1250,340 1350,390 Q1420,420 1440,400 L1440,500 Z" fill="#080604" opacity="0.9"/>
+      <!-- 孤峰 -->
+      <path d="M680,500 L690,220 Q695,200 700,180 Q705,200 710,220 L720,500 Z" fill="#1a1613" opacity="0.4"/>
+      <path d="M540,500 L545,310 Q548,290 550,270 Q552,290 555,310 L560,500 Z" fill="#141210" opacity="0.3"/>
     </svg>
+  </div>
+
+  <!-- 云雾层 -->
+  <div class="mist mist-1"></div>
+  <div class="mist mist-2"></div>
+  <div class="mist mist-3"></div>
+
+  <!-- 金色粒子 -->
+  <div class="gold-particles">
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div>
   </div>
 
   <!-- 主容器 -->
   <div class="app-container">
     <!-- 头部 -->
     <header class="hero" id="hero">
-      <div class="hero-bg">
-        <div class="ink-effect ink-1"></div>
-        <div class="ink-effect ink-2"></div>
-        <div class="ink-effect ink-3"></div>
+      <div class="title-seal-row">
+        <span class="seal-line"></span>
+        <span class="seal-char">道</span>
+        <span class="seal-line"></span>
       </div>
-      <div class="hero-content">
-        <div class="title-decoration">
-          <span class="deco-line"></span>
-          <span class="deco-diamond">◆</span>
-          <span class="deco-line"></span>
-        </div>
-        <h1 class="main-title">明 道 测 算</h1>
-        <p class="subtitle">探 索 命 理 奥 秘 · 洞 悉 人 生 玄 机</p>
-        <div class="title-decoration bottom">
-          <span class="deco-line"></span>
-          <span class="deco-diamond">◆</span>
-          <span class="deco-line"></span>
-        </div>
-      </div>
+      <h1 class="main-title">明 道 测 算</h1>
+      <p class="subtitle">探 索 命 理 奥 秘 · 洞 悉 人 生 玄 机</p>
     </header>
 
     <!-- 导航卡片 -->
@@ -49,42 +81,42 @@
       <div class="nav-grid">
         <div class="nav-card" data-module="bazi" style="--card-index: 1">
           <div class="card-icon">
-            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">☰</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">四柱</text></svg>
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="currentColor" stroke-width="1.3"/><text x="30" y="24" text-anchor="middle" font-size="15" fill="currentColor">☰</text><text x="30" y="44" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.6">四柱</text></svg>
           </div>
           <h3 class="card-title">八字排盘</h3>
           <p class="card-desc">生辰八字推算 · 五行命理分析</p>
         </div>
         <div class="nav-card" data-module="liuyao" style="--card-index: 2">
           <div class="card-icon">
-            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">⚊</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">六爻</text></svg>
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="currentColor" stroke-width="1.3"/><text x="30" y="24" text-anchor="middle" font-size="15" fill="currentColor">⚊</text><text x="30" y="44" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.6">六爻</text></svg>
           </div>
           <h3 class="card-title">六爻占卜</h3>
           <p class="card-desc">铜钱起卦 · 六十四卦详解</p>
         </div>
         <div class="nav-card" data-module="paipan" style="--card-index: 3">
           <div class="card-icon">
-            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">◎</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">命盘</text></svg>
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="currentColor" stroke-width="1.3"/><text x="30" y="24" text-anchor="middle" font-size="15" fill="currentColor">◎</text><text x="30" y="44" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.6">命盘</text></svg>
           </div>
           <h3 class="card-title">命盘排盘</h3>
           <p class="card-desc">命盘精排 · 藏干纳音神煞</p>
         </div>
         <div class="nav-card" data-module="lost" style="--card-index: 4">
           <div class="card-icon">
-            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">⌖</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">寻物</text></svg>
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="currentColor" stroke-width="1.3"/><text x="30" y="24" text-anchor="middle" font-size="15" fill="currentColor">⌖</text><text x="30" y="44" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.6">寻物</text></svg>
           </div>
           <h3 class="card-title">寻物方位</h3>
           <p class="card-desc">失物推算 · 方位指引</p>
         </div>
         <div class="nav-card" data-module="romance" style="--card-index: 5">
           <div class="card-icon">
-            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">❀</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">桃花</text></svg>
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="currentColor" stroke-width="1.3"/><text x="30" y="24" text-anchor="middle" font-size="15" fill="currentColor">❀</text><text x="30" y="44" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.6">桃花</text></svg>
           </div>
           <h3 class="card-title">桃花姻缘</h3>
           <p class="card-desc">姻缘测算 · 桃花运势</p>
         </div>
         <div class="nav-card" data-module="tarot" style="--card-index: 6">
           <div class="card-icon">
-            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="30" y="25" text-anchor="middle" font-size="16" fill="currentColor">✦</text><text x="30" y="46" text-anchor="middle" font-size="9" fill="currentColor" opacity="0.7">塔罗</text></svg>
+            <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="currentColor" stroke-width="1.3"/><text x="30" y="24" text-anchor="middle" font-size="15" fill="currentColor">✦</text><text x="30" y="44" text-anchor="middle" font-size="8" fill="currentColor" opacity="0.6">塔罗</text></svg>
           </div>
           <h3 class="card-title">塔罗牌占卜</h3>
           <p class="card-desc">大阿卡纳 · 命运启示</p>
@@ -288,8 +320,8 @@
     <!-- 页脚 -->
     <footer class="site-footer">
       <div class="footer-ornament">
-        <svg viewBox="0 0 800 30" xmlns="http://www.w3.org/2000/svg">
-          <path d="M100,15 Q200,30 300,15 Q400,0 500,15 Q600,30 700,15" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+        <svg viewBox="0 0 600 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M80,10 Q150,3 220,10 Q290,17 360,10 Q430,3 520,10" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
         </svg>
       </div>
       <p class="footer-text">明道测算 · 仅供参考娱乐</p>
@@ -304,5 +336,14 @@
   <script src="js/tarot.js"></script>
   <script src="js/divination.js"></script>
   <script src="js/app.js"></script>
+
+  <!-- 弹窗关闭脚本 -->
+  <script>
+  function closeWelcome() {
+    var overlay = document.getElementById('welcomeOverlay');
+    overlay.classList.add('closing');
+    setTimeout(function() { overlay.remove(); }, 400);
+  }
+  </script>
 </body>
 </html>
